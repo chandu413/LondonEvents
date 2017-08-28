@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="'London ' + ${cat} + ' Events'" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <p> <a href="/">Home</a></p>
+    
+     <div th:if="${not #lists.isEmpty(events)}">
+    	<h2>List of Events</h2>
+    		<table>
+    			<tr>
+    				<th align="left">&nbsp;&nbsp;Title&nbsp;&nbsp;&nbsp;&nbsp;</th>
+    				<th align="left">&nbsp;&nbsp;Venue Name&nbsp;&nbsp;&nbsp;&nbsp;</th>
+    				<th align="left">&nbsp;&nbsp;Venue Address&nbsp;&nbsp;&nbsp;&nbsp;</th>
+    				<th align="left">&nbsp;&nbsp;Start Time&nbsp;&nbsp;&nbsp;&nbsp;</th> 
+    			</tr>
+    			<tr th:each="event: ${events}">
+    			<td th:text="'&nbsp;&nbsp;' + ${event.title}"/>
+    			<td th:text="'&nbsp;&nbsp;' + ${event.venue_name}"/>
+    			<td th:text="'&nbsp;&nbsp;' + ${event.venue_address}"/>
+    			<td th:text="'&nbsp;&nbsp;' + ${event.start_time}"/> 
+    			</tr>
+    		</table>
+    </div>
+    
+</body>
+</html>
